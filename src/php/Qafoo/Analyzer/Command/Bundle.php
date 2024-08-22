@@ -33,7 +33,7 @@ class Bundle extends Command
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $baseDir = realpath(__DIR__ . '/../../../../../');
         if (!is_dir($target = $input->getArgument('path'))) {
@@ -69,5 +69,7 @@ class Bundle extends Command
         } else {
             copy($baseDir . '/index.html', $target . '/index.html');
         }
+
+        return 0;
     }
 }

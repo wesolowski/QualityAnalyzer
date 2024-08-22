@@ -14,7 +14,7 @@ class Application extends Console\Application
      *
      * @return \Symfony\Component\Console\Command\Command[]
      */
-    protected function getDefaultCommands()
+    protected function getDefaultCommands(): array
     {
 
         $shell = new Shell(dirname(VENDOR_PATH));

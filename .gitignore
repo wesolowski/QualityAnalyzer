@@ -6,3 +6,4 @@
 /assets/tests.*
 /assets/*.map
 /data/*
+.idea

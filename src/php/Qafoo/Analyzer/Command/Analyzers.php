@@ -38,11 +38,13 @@ class Analyzers extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>The following analysers are available and enabled by default:</info>');
         foreach (array_keys($this->analysers) as $analyser) {
             $output->writeln('- ' . $analyser);
         }
+
+        return 0;
     }
 }

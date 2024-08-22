@@ -108,7 +108,7 @@ class Analyze extends Command
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if (!is_dir($path = realpath($input->getArgument(self::ARGUMENT_PATH)))) {
             throw new \OutOfBoundsException("Could not find " . $input->getArgument(self::ARGUMENT_PATH));
@@ -144,6 +144,8 @@ class Analyze extends Command
 
         file_put_contents($this->targetDir . '/project.json', json_encode($project));
         $output->writeln("Done");
+
+        return 0;
     }
 
     private function filterHandlers(InputInterface $input)

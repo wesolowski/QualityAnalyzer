@@ -2,8 +2,6 @@
 
 namespace Qafoo\Analyzer\Handler;
 
-use SebastianBergmann\FinderFacade\FinderFacade;
-
 use Qafoo\Analyzer\Handler;
 use Qafoo\Analyzer\Shell;
 use Qafoo\Analyzer\Project;
@@ -44,7 +42,7 @@ class Source extends Handler
             $isSeven = true;
         }
         foreach ($finder->findFiles() as $existingResult) {
-            if (is_file($existingResult) && $isSeven || !$isSeven) {
+            if ((is_file($existingResult) && $isSeven) || !$isSeven) {
                 $archive->addFile($existingResult, ltrim(str_replace($project->baseDir, '', $existingResult), '/'));
             }
         }

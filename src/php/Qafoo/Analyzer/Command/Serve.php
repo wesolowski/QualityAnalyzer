@@ -30,12 +30,14 @@ class Serve extends Command
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $port = (int) $input->getOption('port');
         $hostname = $input->getOption('hostname');
         $baseDir = realpath(__DIR__ . '/../../../../../');
         $output->writeln("Starting webserver on http://$hostname:$port/");
         passthru("php -S $hostname:$port -t $baseDir $baseDir/bin/serve.php");
+
+        return 0;
     }
 }
